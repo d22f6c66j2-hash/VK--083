@@ -182,7 +182,7 @@ def ask_groq(text, user_name):
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": f"{user_name}: {text}"}
             ],
-            model="openai/gpt-oss-120b",
+            model="openai/gpt-oss-20b",
             temperature=1.0,
             max_tokens=300,
         )
@@ -216,7 +216,6 @@ def bot_loop():
             except:
                 user_name = "Бро"
 
-            # Проверяем RP-команду
             rp_result = handle_rp_command(text, vk, event)
 
             if rp_result:
