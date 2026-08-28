@@ -8,8 +8,8 @@ import time
 import os
 
 # ========== НАСТРОЙКИ ==========
-VK_TOKEN = os.environ.get("vk1.a.uME-I0h1_WoG5HvZEIXXWf-lTF16lUTsLT4Lxy54nN6DaIATjQVXmfr_vw8u6935PzVyHSzkVZpHEmZ48w0Fk3UXnydWC2vr5GaEIDexdRmENT16io09LsJeeRZGFGj9KxQf-FJxVf5xxcK0491ana6Mo2IzMAth1eeWsevysphZfeG6ALY_3jECj5CdmnBLdXt0znDxJK8GT3mqzfmr_Q", "")
-GROQ_API_KEY = os.environ.get("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", "")
+VK_TOKEN = os.environ.get("VK_TOKEN"")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 PEER_ID = 0
 # ================================
 
