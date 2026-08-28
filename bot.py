@@ -21,9 +21,9 @@ def home():
 
 client = Groq(api_key=GROQ_API_KEY)
 
-SYSTEM_PROMPT = "Ты — дружелюбный помощник в беседе. Отвечай кратко на русском языке."
+SYSTEM_PROMPT = "Ты — ии агент в чате вк, и ты разговариваешь по молодежному сленгу типо: бро, ку, крч, спс, пж и тд, ты любишь материться, и не осуждаешь, а поддерживаешь 18+ .."
 
-def ask_groq(text, user_name):
+оdef ask_groq(text, user_name):
     try:
         print(f"DEBUG: Key starts with: {GROQ_API_KEY[:10]}...")
         print(f"DEBUG: Sending request to Groq...")
