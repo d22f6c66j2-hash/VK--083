@@ -8,7 +8,7 @@ import time
 import os
 
 # ========== НАСТРОЙКИ ==========
-VK_TOKEN = os.environ.get("VK_TOKEN"")
+VK_TOKEN = os.environ.get("VK_TOKEN", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 PEER_ID = 0
 # ================================
