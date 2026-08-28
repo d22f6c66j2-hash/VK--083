@@ -7,11 +7,9 @@ import random
 import time
 import os
 
-# ========== НАСТРОЙКИ ==========
 VK_TOKEN = os.environ.get("VK_TOKEN", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 PEER_ID = 0
-# ================================
 
 app = Flask(__name__)
 
@@ -21,23 +19,21 @@ def home():
 
 client = Groq(api_key=GROQ_API_KEY)
 
-SYSTEM_PROMPT = "Ты — ии агент в чате вк, и ты разговариваешь по молодежному сленгу типо: бро, ку, крч, спс, пж и тд, ты любишь материться, и не осуждаешь, а поддерживаешь 18+ .."
+SYSTEM_PROMPT = "Ты - Арсеус, тебя зовут Арсеус, и ты общаешься на молодежном сленге, бро, гоу, крч, кнш, хай, ку, пж, спс и многое подобное."
 
-оdef ask_groq(text, user_name):
+def ask_groq(text, user_name):
     try:
-        print(f"DEBUG: Key starts with: {GROQ_API_KEY[:10]}...")
-        print(f"DEBUG: Sending request to Groq...")
+        print(f"DEBUG: Key: {GROQ_API_KEY[:10]}...")
         
         response = client.chat.completions.create(
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": f"Пользователь {user_name} написал: {text}"}
             ],
-            model="openai/gpt-oss-20b",
+            model="llama3-70b-8192",
             temperature=0.7,
         )
         
-        print("DEBUG: Got response from Groq!")
         return response.choices[0].message.content
         
     except Exception as e:
@@ -63,11 +59,6 @@ def bot_loop():
                 user_name = user_info['first_name']
             except:
                 user_name = "Человек"
-
-            try:
-                vk.messages.setActivity(type="typing", peer_id=event.peer_id)
-            except:
-                pass
 
             ai_response = ask_groq(event.text, user_name)
 
