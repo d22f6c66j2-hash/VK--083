@@ -33,7 +33,7 @@ def ask_groq(text, user_name):
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": f"Пользователь {user_name} написал: {text}"}
             ],
-            model="llama3-70b-8192",
+            model="openai/gpt-oss-20b",
             temperature=0.7,
         )
         
